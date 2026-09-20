@@ -1,75 +1,55 @@
-# 🔊 Leitor de Texto com Python
+# 🔊 Text Speaker
 
-Este é um pequeno projeto desenvolvido em **Python** utilizando a biblioteca **pyttsx3** para transformar texto em fala.
+Um pequeno aplicativo em Python capaz de **transformar textos digitados pelo usuário em fala** utilizando a biblioteca `pyttsx3`.
 
-O programa pergunta ao usuário se ele deseja que o computador fale alguma coisa. Caso a resposta seja **"sim"**, o usuário pode digitar um texto e o computador irá lê-lo em voz alta.
+## 📌 Sobre o projeto
 
-## 🐍 Tecnologias utilizadas
+O **Text Speaker** permite que o usuário informe se deseja utilizar a função de voz e, em seguida, digite o texto que deseja ouvir.
 
-* Python
-* pyttsx3
+O projeto utiliza o mecanismo de síntese de voz disponível no computador para reproduzir o conteúdo informado.
+
+## ⚙️ Funcionalidades
+
+* 🔊 Conversão de texto em fala
+* ⌨️ Entrada de texto pelo usuário
+* ✅ Confirmação para iniciar a leitura
+* 🔡 Tratamento da resposta com `.lower()`
+* 📴 Encerramento do programa quando a função de voz não é solicitada
+
+## 🛠️ Tecnologias
+
+* **Python**
+* **pyttsx3**
 
 ## 📦 Instalação
 
-Para utilizar o projeto, primeiro é necessário instalar a biblioteca `pyttsx3`:
+Instale a dependência necessária:
 
 ```bash
 pip install pyttsx3
 ```
 
-## ⚙️ Como o programa funciona
+## ▶️ Execução
 
-Primeiro, a biblioteca `pyttsx3` é importada:
+Execute o arquivo Python:
 
-```python
-import pyttsx3
+```bash
+python main.py
 ```
 
-Depois, o mecanismo de voz é inicializado:
-
-```python
-voz = pyttsx3.init()
-```
-
-O programa pergunta ao usuário se ele quer que o computador fale:
-
-```python
-pergunta = input("Você quer que eu fale? (sim/não): ").lower()
-```
-
-O `.lower()` transforma a resposta em letras minúsculas.
-
-Por exemplo:
+O programa solicitará:
 
 ```text
-SIM → sim
-Sim → sim
-sIm → sim
+Você quer que eu fale? (sim/não):
 ```
 
-Assim, podemos verificar apenas:
+Caso o usuário confirme, será solicitado o texto:
 
-```python
-if pergunta == "sim":
+```text
+O que você quer que eu fale?
 ```
 
-Se a resposta for `"sim"`, o programa pergunta qual texto deve ser falado:
-
-```python
-texto = input("O que você quer que eu fale? ")
-```
-
-Depois, o método `say()` recebe o texto:
-
-```python
-voz.say(texto)
-```
-
-Por fim, `runAndWait()` executa a fala:
-
-```python
-voz.runAndWait()
-```
+O texto será então reproduzido através da síntese de voz.
 
 ## 💻 Código
 
@@ -92,58 +72,48 @@ else:
     print("Fim do programa")
 ```
 
-## 🧠 O que aprendi
+## 🔊 Funcionamento da síntese de voz
 
-Com esse projeto, pratiquei alguns conceitos importantes de Python:
+O projeto utiliza três operações principais do `pyttsx3`:
 
-* Importação de bibliotecas
-* Variáveis
-* `input()`
-* `if` e `else`
-* Comparação de textos
-* Método `.lower()`
-* Síntese de voz
-* Uso de bibliotecas externas
-* Métodos como `say()` e `runAndWait()`
+### Inicialização
 
-## 🔊 Sobre o pyttsx3
+```python
+voz = pyttsx3.init()
+```
 
-O **pyttsx3** é uma biblioteca que permite fazer programas Python transformarem texto em fala utilizando os mecanismos de voz disponíveis no computador.
+Inicializa o mecanismo responsável pela síntese de voz.
 
-Neste projeto, utilizei principalmente:
+### Definição do texto
 
-### `pyttsx3.init()`
+```python
+voz.say(texto)
+```
 
-Inicializa o mecanismo de voz.
+Adiciona o texto à fila de reprodução.
 
-### `voz.say()`
+### Reprodução
 
-Define o texto que será falado.
+```python
+voz.runAndWait()
+```
 
-### `voz.runAndWait()`
+Executa a fila de fala e aguarda a conclusão da reprodução.
 
-Executa a fala e espera que ela termine.
+## 🚀 Possíveis evoluções
 
-### `.lower()`
+O projeto pode ser expandido para incluir:
 
-Transforma um texto em letras minúsculas, facilitando comparações.
+* Seleção de voz
+* Controle de velocidade
+* Controle de volume
+* Suporte a diferentes idiomas
+* Leitura de arquivos `.txt`
+* Leitura contínua de vários textos
+* Interface gráfica
+* Atalhos de teclado
+* Integração com outras aplicações
 
-## 🚀 Possíveis melhorias
+## 📄 Licença
 
-No futuro, posso adicionar:
-
-* 🗣️ Escolha de diferentes vozes
-* ⚡ Controle da velocidade da fala
-* 🔊 Controle do volume
-* 🔁 Opção para falar vários textos
-* 🌎 Suporte para outros idiomas
-* 🖥️ Interface gráfica
-* ❌ Uma opção específica para sair do programa
-
-## 🎯 Objetivo
-
-O objetivo deste projeto foi praticar **Python, estruturas condicionais, entrada de dados e síntese de voz**, criando um programa simples capaz de transformar um texto digitado pelo usuário em fala.
-
----
-
-🐍 **Projeto criado como prática de programação em Python.**
+Este projeto é disponibilizado para fins de uso e desenvolvimento pessoal.
